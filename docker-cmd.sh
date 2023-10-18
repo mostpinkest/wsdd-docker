@@ -6,7 +6,7 @@ args+=" $WSDD_ARGS "
 
 if [ ! -z "${HOSTNAME}" ]; then
 	args+="-n $HOSTNAME "
-elif [[ ! $args =~ [[:space:]^]-n[=[:space:]][[:alnum:]]+[[:space:]$] ]]
+elif [[ ! $args =~ [[:space:]^]-n[=[:space:]][[:alnum:]]+[[:space:]$] ]]; then
 	echo "HOSTNAME environment variable must be set."
 	exit 1
 fi
