@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-args=
+args=$@
 
 if [ ! -z "${WSDD_ARGS}" ]; then
-  args=${WSDD_ARGS}
+  args+=${WSDD_ARGS}
 else
 	if [ ! -z "${HOSTNAME}" ]; then
 		args+="-n $HOSTNAME "
-	else
+	elif [[ ! $args =~ [[:space:]^]-n[=[:space:]][[:alnum:]]+[[:space:]$] ]]
 		echo "HOSTNAME environment variable must be set."
 		exit 1
 	fi
@@ -21,4 +21,4 @@ else
 	fi
 fi
 
-exec python wsdd.py ${args}
+exec python3 wsdd.py ${args}
