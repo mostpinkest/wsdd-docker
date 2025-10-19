@@ -1,4 +1,4 @@
-# [wsdd-docker](https://github.com/Logicer16/wsdd-docker/)
+# [wsdd-docker](https://github.com/mostpinkest/wsdd-docker/)
 
 Docker image for wsdd.py. 
 
@@ -19,7 +19,7 @@ You can additionally pass wsdd arguments in the environment variable `WSDD_ARGS`
 ### From command line
 
 ```
-docker run --net=host -e HOSTNAME=$(hostname) logicer16/wsdd
+docker run --net=host -e HOSTNAME=$(hostname) mostpinkest/wsdd
 ```
 
 It is important that the container is run with the argument --net=host and that the environment variabel HOSTNAME is set to the same value as your Samba netbios name. Samba netbios name defaults to the hostname. 
@@ -29,7 +29,7 @@ It is important that the container is run with the argument --net=host and that 
 A docker-compose.yml file could look like the one below. 
 ```
         wsdd:
-                image: "logicer16/wsdd"
+                image: "mostpinkest/wsdd"
                 environment:
                         - HOSTNAME=NETBIOS_NAME
                 restart: unless-stopped
