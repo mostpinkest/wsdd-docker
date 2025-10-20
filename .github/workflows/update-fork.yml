@@ -10,9 +10,16 @@ jobs:
     uses: mostpinkest/workflows/.github/workflows/update-repo.yml@main
     with:
       upstream: JonasPed/wsdd-docker
+    permissions:
+      contents: write
 
   update-docker-image:
     needs: update-repo
     if: ${{ needs.update-repo.outputs.new-commits == 'true' }}
     uses: ./.github/workflows/docker-publish.yml
+    permissions:
+      id-token: write
+      contents: read
+      attestations: write
+      packages: write
     secrets: inherit
